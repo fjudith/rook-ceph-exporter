@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ceph-node-exporter
+  namespace: ceph
+spec:
+  containers:
+   - name: ceph-node-exporter
+     image: digitalocean/ceph_exporter
+     volumeMounts:
+     - name: ceph-etc
+       mountPath: /etc/ceph/ceph.conf
+       readOnly: true
+       subPath: ceph.conf
+       readOnly: true
+     - name: ceph-client-admin-keyring  
+       mountPath: /etc/ceph/ceph.client.admin.keyring
+       readOnly: true
+       subPath: ceph.client.admin.keyring
+     - name: ceph-mon-keyring 
+       mountPath: /etc/ceph/ceph.mon.keyring
+  volumes:
+   - name: ceph-etc 
+     configMap:
+        defaultMode: 292
+        name: ceph-etc
+   - name: ceph-client-admin-keyring
+     secret:
+        defaultMode: 420
+        secretName: ceph-client-admin-keyring
+   - name: ceph-mon-keyring
+     secret:
+        defaultMode: 420
+        secretName: ceph-mon-keyring
+   - name: ceph-bootstrap-osd-keyring
+     secret:
+        defaultMode: 420
+        secretName: ceph-bootstrap-osd-keyring
+   - name: ceph-bootstrap-mds-keyring
+     secret:
+        defaultMode: 420
+        secretName: ceph-bootstrap-mds-keyring
+   - name: ceph-bootstrap-rgw-keyring
+     secret:
+        defaultMode: 420
+        secretName: ceph-bootstrap-rgw-keyring

@@ -1,0 +1,28 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ceph-exporter
+  namespace: ceph
+spec:
+  selector:
+    app: ceph-exporter
+  ports:
+  - name: ceph-exporter
+    port: 9128
+    targetPort: ceph-exporter
+  selector:
+    prometheus: ceph-exporter
+---
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  name: ceph-exporter
+  namespace: ceph
+  labels:
+    prometheus: ceph-exporter
+spec:
+  version: v1.3.0
+  serviceMonitors:
+  - selector:
+      matchLabels:
+        tier: ceph-exporter
