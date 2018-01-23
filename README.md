@@ -11,9 +11,9 @@ Prometheus exporter that scrapes meta information about a running ceph cluster. 
 [official Golang client](https://github.com/ceph/go-ceph) 
 
 ## Requeriments
-A kubernetes cluster 1.7+
-Ceph helm deployed on the kubernetes cluster
-[Prometheus operator](https://github.com/coreos/prometheus-operator)
+- A kubernetes cluster 1.7+ (RBAC enabled)
+- Ceph helm deployed on the kubernetes cluster
+- [Prometheus operator](https://github.com/coreos/prometheus-operator)
 
 ## Deployment
 ```
