@@ -13,6 +13,7 @@ Prometheus exporter that scrapes meta information about a running ceph cluster. 
 ## Requeriments
 A kubernetes cluster 1.7+
 Ceph helm deployed on the kubernetes cluster
+[Prometheus operator](https://github.com/coreos/prometheus-operator)
 
 ## Deployment
 ```
