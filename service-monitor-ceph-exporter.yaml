@@ -2,11 +2,15 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: ceph-exporter
-  namespace: ceph
+  namespace: monitoring
+  labels:
+    k8s-app: ceph-exporter
 spec:
   selector:
     matchLabels:
       app: ceph-exporter
+  namespaceSelector:
+    matchNames:
+    - ceph
   endpoints:
   - port: ceph-exporter
-    interval: 15s
