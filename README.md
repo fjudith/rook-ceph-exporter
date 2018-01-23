@@ -48,8 +48,10 @@ http://docs.ceph.com/docs/master/mgr/prometheus/
 
 ## Sample view
 Grafana Dashboard
-https://user-images.githubusercontent.com/19332777/35259473-c1f37e58-ffcb-11e7-8abd-7d7b2b3d7712.jpg
+![grafana_-_ceph_-_cluster](https://user-images.githubusercontent.com/19332777/35259473-c1f37e58-ffcb-11e7-8abd-7d7b2b3d7712.jpg)
 
-Prometheus target
+Prometheus Targets
+![ceph-exporter](https://user-images.githubusercontent.com/19332777/35259478-c73ace16-ffcb-11e7-921e-c88f62d96ab7.jpg)
+
 
 
